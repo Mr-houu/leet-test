@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println("------master");
+        System.out.println("------解决分支测试");
     }
 
 }

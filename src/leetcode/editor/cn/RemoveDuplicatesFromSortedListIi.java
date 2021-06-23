@@ -32,33 +32,52 @@ package leetcode.editor.cn;
 // Related Topics 链表 
 // 👍 529 👎 0
 
-public class RemoveDuplicatesFromSortedListIi{
+public class RemoveDuplicatesFromSortedListIi {
     public static void main(String[] args) {
         Solution solution = new RemoveDuplicatesFromSortedListIi().new Solution();
-        
+
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
-        if (null == head) {
-            return null;
-        }
-        if (null != head.next && )
-        ListNode newHead =
 
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     * int val;
+     * ListNode next;
+     * ListNode() {}
+     * ListNode(int val) { this.val = val; }
+     * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     * }
+     */
+    class Solution {
+        public ListNode deleteDuplicates(ListNode head) {
+            if (null == head) {
+                return head;
+            }
+            // 创建一个哑结点，next指向head
+            ListNode dummy = new ListNode(0, head);
+            // 指针指向当前哑结点
+            ListNode cur = dummy;
+            // 循环遍历节点
+            while (cur.next != null && cur.next.next != null) {
+                // 节点相等，删除节点
+                if (cur.next.val == cur.next.next.val) {
+                    // 存储节点值，便于删除
+                    int x = cur.next.val;
+                    // 删除下一个满足条件的节点
+                    while (cur.next != null && cur.next.val == x) {
+                        cur.next = cur.next.next;
+                    }
+                } else {
+                    // 条件不满足，跳到下一个节点
+                    cur = cur.next;
+                }
+            }
+            // 返回头结点
+            return dummy.next;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

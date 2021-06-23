@@ -12,6 +12,7 @@ public class App
     public static void main( String[] args )
     {
         System.out.println("------解决分支测试");
+
         System.out.println("----hytest");
         String s = null;
         Map<Character, Integer> map = null;
